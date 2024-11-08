@@ -9,14 +9,12 @@ from qiskit.transpiler.preset_passmanagers import generate_preset_pass_manager
 def callback_func(**kwargs):
     global excute_info
     pass_ = kwargs['pass_']
-    dag = kwargs['dag']
     time = kwargs['time']
-    property_set = kwargs['property_set']
     count = kwargs['count']
     name = pass_.__class__.__name__
     excute_info.append([name, time, count])
     
-for num_qubits in range(3,20):
+for num_qubits in range(10,15):
     excute_info = []
     state = np.random.rand(2**num_qubits)
     state = state/np.linalg.norm(state)
